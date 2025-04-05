@@ -44,14 +44,7 @@ const PurchaseModal = ({ show, onHide, gpu }) => {
       saveRentalHash(ipfsHash);
 
       // Navigate to rental list page
-      navigate("/rentals", {
-        state: {
-          newRental: {
-            ...rentalData,
-            ipfsHash,
-          },
-        },
-      });
+      navigate("/rentals");
     } catch (error) {
       console.error("Error processing rental:", error);
       alert("There was an error processing your rental. Please try again.");

@@ -9,7 +9,7 @@ const gpuData = [
     price: 0.05, // ETH per hour
     specs: {
       cores: 16384,
-      memory: "24 GB GDDR6X",
+      memorySize: "24 GB GDDR6X",
       memoryBandwidth: "1008 GB/s",
       performance: "82.6 TFLOPS",
       architecture: "Ada Lovelace",
@@ -30,7 +30,7 @@ const gpuData = [
     price: 0.035, // ETH per hour
     specs: {
       cores: 9728,
-      memory: "16 GB GDDR6X",
+      memorySize: "16 GB GDDR6X",
       memoryBandwidth: "716.8 GB/s",
       performance: "48.7 TFLOPS",
       architecture: "Ada Lovelace",
@@ -51,7 +51,7 @@ const gpuData = [
     price: 0.03, // ETH per hour
     specs: {
       cores: 12288,
-      memory: "24 GB GDDR6",
+      memorySize: "24 GB GDDR6",
       memoryBandwidth: "960 GB/s",
       performance: "61 TFLOPS",
       architecture: "RDNA 3",
@@ -72,7 +72,7 @@ const gpuData = [
     price: 0.08, // ETH per hour
     specs: {
       cores: 6912,
-      memory: "80 GB HBM2e",
+      memorySize: "80 GB HBM2e",
       memoryBandwidth: "2039 GB/s",
       performance: "19.5 TFLOPS",
       architecture: "Ampere",
@@ -93,7 +93,7 @@ const gpuData = [
     price: 0.02, // ETH per hour
     specs: {
       cores: 10496,
-      memory: "24 GB GDDR6X",
+      memorySize: "24 GB GDDR6X",
       memoryBandwidth: "936 GB/s",
       performance: "35.6 TFLOPS",
       architecture: "Ampere",
@@ -114,7 +114,7 @@ const gpuData = [
     price: 0.07, // ETH per hour
     specs: {
       cores: 14080,
-      memory: "128 GB HBM2e",
+      memorySize: "128 GB HBM2e",
       memoryBandwidth: "3276 GB/s",
       performance: "95.7 TFLOPS",
       architecture: "CDNA 2",
