@@ -53,7 +53,7 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
     address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
 
     string source = "const specificGpuData = await Functions.makeHttpRequest({url: `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/${args[0]}`});"
-    "const allGpusData = await Functions.makeHttpRequest({url: `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/bafkreih4yc7qfawcht2uwmxmo6qyumvr3m7p4pnbyreymyfmkbifctf53a`});"
+    "const allGpusData = await Functions.makeHttpRequest({url: `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/bafkreifgi5e3guneep5o5toj2zfz5c7ptk34hohsrz5t7ruxrdygwbu4w4`});"
     "const model = specificGpuData.data.gpu.model;"
     "const referenceGpu = allGpusData.data.GpuData.find(gpu => gpu.model === model);"
     "const referenceSpecs = referenceGpu.specs;"

@@ -61,7 +61,7 @@ const gpuData = [
       powerConsumption: "355W",
     },
     availability: "2 hours",
-    minimumRental: 2, // hours
+    minimumRental: 1, // hours
     rating: 4.6,
     reviews: 78,
   },
@@ -127,7 +127,7 @@ const gpuData = [
       powerConsumption: "560W",
     },
     availability: "4 hours",
-    minimumRental: 4, // hours
+    minimumRental: 1, // hours
     rating: 4.8,
     reviews: 42,
   },

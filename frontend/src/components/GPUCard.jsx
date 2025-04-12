@@ -20,7 +20,7 @@ const GPUCard = ({ gpu }) => {
               <strong>Performance:</strong> {gpu.specs.performance}
             </p>
             <p>
-              <strong>Memory:</strong> {gpu.specs.memory}
+              <strong>Memory:</strong> {gpu.specs.memorySize}
             </p>
           </div>
           <div className="gpu-card-price">
