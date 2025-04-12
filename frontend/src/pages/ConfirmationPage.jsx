@@ -19,6 +19,8 @@ const ConfirmationPage = () => {
     ipfsHash,
     rentalData: initialRentalData,
     txHash: depositTxHash,
+    vTxHash,
+    rTxhash,
   } = location.state || {};
   const [rentalData, setRentalData] = useState(initialRentalData);
   const [loading, setLoading] = useState(!initialRentalData);
@@ -26,10 +28,10 @@ const ConfirmationPage = () => {
   const [canVerify, setCanVerify] = useState(true);
   const [verifying, setVerifying] = useState(false);
   const [verificationError, setVerificationError] = useState(null);
-  const [verificationTxHash, setVerificationTxHash] = useState(null);
+  const [verificationTxHash, setVerificationTxHash] = useState(vTxHash ?? null);
   const [resolving, setResolving] = useState(false);
   const [resolveError, setResolveError] = useState(null);
-  const [resolveTxHash, setResolveTxHash] = useState(null);
+  const [resolveTxHash, setResolveTxHash] = useState(rTxhash ?? null);
   const [verifyCooldown, setVerifyCooldown] = useState(COOLDOWN_PERIOD);
   const [resolveCooldown, setResolveCooldown] = useState(COOLDOWN_PERIOD);
 

@@ -141,6 +141,8 @@ const MyRentalsPage = () => {
                       ipfsHash: rental.ipfsHash,
                       rentalData: rental,
                       txHash: rental.depositTxHash,
+                      vTxHash: rental.verificationTxHash,
+                      rTxhash: rental.resolveTxHash,
                     }}
                     className="btn btn-outline-primary w-100"
                   >
