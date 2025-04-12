@@ -99,7 +99,10 @@ const ConfirmationPage = () => {
         signer
       );
 
-      const tx = await contract.verifyRental(ipfsHash, 4553);
+      const tx = await contract.verifyRental(
+        ipfsHash,
+        ethers.BigNumber.from("4553")
+      );
       const receipt = await tx.wait();
       const verifyTxHash = receipt.transactionHash;
       setVerificationTxHash(verifyTxHash);
