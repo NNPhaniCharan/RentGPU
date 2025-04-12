@@ -17,13 +17,7 @@ const Header = () => {
               <Link to="/gpus">Rent GPUs</Link>
             </li>
             <li>
-              <Link to="/rentals">My Rentals</Link>
-            </li>
-            <li>
-              <Link to="#">About</Link>
-            </li>
-            <li>
-              <Link to="#">Contact</Link>
+              <Link to="/my-rentals">My Rentals</Link>
             </li>
           </ul>
         </nav>

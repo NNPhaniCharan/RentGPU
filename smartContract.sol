@@ -72,15 +72,14 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
     mapping(string => uint256) public results;
     uint256 public result;
 
-    constructor(address _provider) FunctionsClient(router) ConfirmedOwner(msg.sender) {
-        provider = _provider;
-    }
+    constructor() FunctionsClient(router) ConfirmedOwner(msg.sender) {}
 
-    function depositRental(string calldata ipfsHash) external payable {
+    function depositRental(string calldata ipfsHash, address _provider) external payable {
         if (msg.value == 0) revert InsufficientFunds();
         Rental storage rental = rentals[ipfsHash];
         if (rental.user != address(0)) revert AlreadyVerified();
         
+        provider = _provider; // Set provider address for this rental
         rental.user = msg.sender;
         rental.amount = msg.value;
         rental.isVerified = false;
@@ -91,7 +90,6 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
 
     function verifyRental(string calldata ipfsHash, uint64 subscriptionId) 
         external 
-        onlyOwner 
         returns (bytes32 requestId) 
     {
         Rental storage rental = rentals[ipfsHash];
@@ -134,7 +132,7 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
         emit RentalVerified(ipfsHash, result);
     }
 
-    function resolveRental(string calldata ipfsHash) external onlyOwner {
+    function resolveRental(string calldata ipfsHash) external {
         Rental storage rental = rentals[ipfsHash];
         if (rental.user == address(0)) revert RentalNotFound();
         if (!rental.isVerified) revert NotVerified();

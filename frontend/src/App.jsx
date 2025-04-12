@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import GPUListing from "./pages/GPUListing";
 import ConfirmationPage from "./pages/ConfirmationPage";
-import RentalListPage from "./pages/RentalListPage";
+import MyRentalsPage from "./pages/MyRentalsPage";
 
 function App() {
   return (
@@ -16,8 +16,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gpus" element={<GPUListing />} />
-            <Route path="/rentals" element={<RentalListPage />} />
-            <Route path="/confirmation/:id" element={<ConfirmationPage />} />
+            <Route
+              path="/confirmation/:rentalId"
+              element={<ConfirmationPage />}
+            />
+            <Route path="/my-rentals" element={<MyRentalsPage />} />
           </Routes>
         </main>
         <Footer />
