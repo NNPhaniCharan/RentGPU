@@ -34,7 +34,7 @@ const ConfirmationPage = () => {
   const [resolveTxHash, setResolveTxHash] = useState(rTxhash ?? null);
   const [verifyCooldown, setVerifyCooldown] = useState(COOLDOWN_PERIOD);
   const [resolveCooldown, setResolveCooldown] = useState(COOLDOWN_PERIOD);
-  const [verificationResult, setVerificationResult] = useState(null);
+  const [verificationResult, setVerificationResult] = useState(rentalData?.verificationResult ?? null);
 
   // Cooldown timer effect
   useEffect(() => {
