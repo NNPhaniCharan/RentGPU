@@ -34,6 +34,7 @@ const ConfirmationPage = () => {
   const [resolveTxHash, setResolveTxHash] = useState(rTxhash ?? null);
   const [verifyCooldown, setVerifyCooldown] = useState(COOLDOWN_PERIOD);
   const [resolveCooldown, setResolveCooldown] = useState(COOLDOWN_PERIOD);
+  const [verificationResult, setVerificationResult] = useState(null);
 
   // Cooldown timer effect
   useEffect(() => {
@@ -146,14 +147,22 @@ const ConfirmationPage = () => {
         signer
       );
 
-      const tx = await contract.resolveRental(ipfsHash);
+      const [tx, result] = await Promise.all([
+        contract.resolveRental(ipfsHash),
+        contract.results(ipfsHash),
+      ]);
       const receipt = await tx.wait();
       const resolveTxHash = receipt.transactionHash;
       setResolveTxHash(resolveTxHash);
+      const verificationResult = +result.toString();
+      setVerificationResult(verificationResult);
 
       // Update rental status and transactions in local storage
       updateRentalStatus(rentalId, "Resolved");
-      updateRentalTransactions(rentalId, { resolveTxHash });
+      updateRentalTransactions(rentalId, {
+        resolveTxHash,
+        verificationResult,
+      });
 
       // Update rental status in state
       setRentalData((prev) => ({
@@ -429,6 +438,36 @@ const ConfirmationPage = () => {
                       {resolveError}
                     </div>
                   )}
+                </div>
+              )}
+
+              {status === "Resolved" && verificationResult && (
+                <div className="mt-4">
+                  <h5 className="mb-3">Payment Distribution</h5>
+                  <div className="bg-light p-3 rounded border">
+                    <div className="mb-3">
+                      <p className="text-muted small mb-2">
+                        Based on GPU efficiency of {verificationResult}%
+                      </p>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <span className="text-muted">
+                        Provider's Share ({verificationResult}%)
+                      </span>
+                      <span className="fw-bold">
+                        {totalPrice * (verificationResult / 100)} ETH
+                      </span>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <span className="text-muted">
+                        Your Refund ({100 - verificationResult}%)
+                      </span>
+                      <span className="fw-bold">
+                        {totalPrice - totalPrice * (verificationResult / 100)}{" "}
+                        ETH
+                      </span>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
