@@ -50,7 +50,7 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
     event RentalResolvedAndPaid(string indexed ipfsHash, address indexed provider, uint256 providerAmount, address indexed user, uint256 userAmount);
 
     // Router address - Hardcoded for Sepolia
-    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
+    // address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
 
     string source = "const specificGpuData = await Functions.makeHttpRequest({url: `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/${args[0]}`});"
     "const allGpusData = await Functions.makeHttpRequest({url: `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/bafkreifgi5e3guneep5o5toj2zfz5c7ptk34hohsrz5t7ruxrdygwbu4w4`});"
@@ -72,7 +72,7 @@ contract GPURentalEscrow is FunctionsClient, ConfirmedOwner {
     mapping(string => uint256) public results;
     uint256 public result;
 
-    constructor() FunctionsClient(router) ConfirmedOwner(msg.sender) {}
+    constructor() FunctionsClient(0xb83E47C2bC239B3bf370bc41e1459A34b41238D0) ConfirmedOwner(msg.sender) {}
 
     function depositRental(string calldata ipfsHash, address _provider) external payable {
         if (msg.value == 0) revert InsufficientFunds();
