@@ -34,7 +34,9 @@ const ConfirmationPage = () => {
   const [resolveTxHash, setResolveTxHash] = useState(rTxhash ?? null);
   const [verifyCooldown, setVerifyCooldown] = useState(COOLDOWN_PERIOD);
   const [resolveCooldown, setResolveCooldown] = useState(COOLDOWN_PERIOD);
-  const [verificationResult, setVerificationResult] = useState(rentalData?.verificationResult ?? null);
+  const [verificationResult, setVerificationResult] = useState(
+    rentalData?.verificationResult ?? null
+  );
 
   // Cooldown timer effect
   useEffect(() => {
@@ -276,20 +278,36 @@ const ConfirmationPage = () => {
                     </td>
                   </tr>
                   {verificationTxHash && (
-                    <tr>
-                      <th>Verification Transaction</th>
-                      <td>
-                        <a
-                          href={`https://sepolia.etherscan.io/tx/${verificationTxHash}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="d-flex align-items-center"
-                        >
-                          View on Etherscan{" "}
-                          <FaExternalLinkAlt className="ms-1" />
-                        </a>
-                      </td>
-                    </tr>
+                    <>
+                      <tr>
+                        <th>Verification Transaction</th>
+                        <td>
+                          <a
+                            href={`https://sepolia.etherscan.io/tx/${verificationTxHash}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="d-flex align-items-center"
+                          >
+                            View on Etherscan{" "}
+                            <FaExternalLinkAlt className="ms-1" />
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ChainLink Fulfillment</th>
+                        <td>
+                          <a
+                            href={`https://functions.chain.link/sepolia/4553`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="d-flex align-items-center"
+                          >
+                            View Function Details{" "}
+                            <FaExternalLinkAlt className="ms-1" />
+                          </a>
+                        </td>
+                      </tr>
+                    </>
                   )}
                   {resolveTxHash && (
                     <tr>
