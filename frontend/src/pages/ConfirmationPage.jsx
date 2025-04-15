@@ -11,7 +11,7 @@ import {
 } from "../utils/rentalStorage";
 import jsPDF from "jspdf";
 
-const COOLDOWN_PERIOD = 10; // seconds for testing
+const COOLDOWN_PERIOD = 120; // seconds for testing
 
 const ConfirmationPage = () => {
   const { rentalId } = useParams();
