@@ -9,6 +9,7 @@ import {
   updateRentalStatus,
   updateRentalTransactions,
 } from "../utils/rentalStorage";
+import jsPDF from "jspdf";
 
 const COOLDOWN_PERIOD = 10; // seconds for testing
 
@@ -177,6 +178,71 @@ const ConfirmationPage = () => {
     } finally {
       setResolving(false);
     }
+  };
+
+  const generateReceipt = () => {
+    const doc = new jsPDF();
+    const margin = 20;
+    let y = margin;
+
+    // Header
+    doc.setFontSize(20);
+    doc.text("GPU Rental Receipt", margin, y);
+    y += 15;
+
+    // Receipt details
+    doc.setFontSize(12);
+    const details = [
+      ["Rental ID:", rentalId],
+      ["GPU Model:", gpu.model],
+      ["Provider:", gpu.provider],
+      ["Provider Address:", gpu.providerAddress],
+      ["Duration:", `${hours} hour(s)`],
+      ["Total Price:", `${totalPrice.toFixed(4)} ETH`],
+      ["Purchase Time:", new Date(timestamp).toLocaleString()],
+      ["Status:", status],
+      ["IPFS Hash:", ipfsHash],
+      ["Contract Address:", contractAddress],
+    ];
+
+    details.forEach(([label, value]) => {
+      if (y > 250) {
+        doc.addPage();
+        y = margin;
+      }
+      doc.setFont(undefined, "bold");
+      doc.text(label, margin, y);
+      doc.setFont(undefined, "normal");
+      doc.text(String(value), margin + 50, y);
+      y += 10;
+    });
+
+    // Add verification result if available
+    if (verificationResult) {
+      y += 5;
+      doc.setFont(undefined, "bold");
+      doc.text("Payment Distribution:", margin, y);
+      y += 10;
+      doc.setFont(undefined, "normal");
+      doc.text(
+        `Provider's Share (${verificationResult}%): ${
+          totalPrice * (verificationResult / 100)
+        } ETH`,
+        margin,
+        y
+      );
+      y += 10;
+      doc.text(
+        `Renter's Refund (${100 - verificationResult}%): ${
+          totalPrice - totalPrice * (verificationResult / 100)
+        } ETH`,
+        margin,
+        y
+      );
+    }
+
+    // Save the PDF
+    doc.save(`GPU_Rental_Receipt_${rentalId}.pdf`);
   };
 
   if (error) {
@@ -500,7 +566,10 @@ const ConfirmationPage = () => {
               <Link to="/gpus" className="btn btn-primary me-2">
                 Rent Another GPU
               </Link>
-              <button className="btn btn-outline-secondary">
+              <button
+                className="btn btn-outline-secondary"
+                onClick={generateReceipt}
+              >
                 Download Receipt
               </button>
             </div>
