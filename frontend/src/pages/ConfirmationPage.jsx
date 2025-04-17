@@ -11,7 +11,7 @@ import {
 } from "../utils/rentalStorage";
 import jsPDF from "jspdf";
 
-const COOLDOWN_PERIOD = 10; // seconds for testing
+const COOLDOWN_PERIOD = 120; // seconds for testing
 
 const roundEthAmount = (amount) => {
   const str = amount.toString();
@@ -211,7 +211,7 @@ const ConfirmationPage = () => {
       ["Provider:", gpu.provider],
       ["Provider Address:", gpu.providerAddress],
       ["Duration:", `${hours} hour(s)`],
-      ["Total Price:", `${totalPrice.toFixed(4)} ETH`],
+      ["Total Price:", `${roundEthAmount(totalPrice)} ETH`],
       ["Purchase Time:", new Date(timestamp).toLocaleString()],
       ["Status:", status],
       ["IPFS Hash:", ipfsHash],
@@ -237,18 +237,20 @@ const ConfirmationPage = () => {
       doc.text("Payment Distribution:", margin, y);
       y += 10;
       doc.setFont(undefined, "normal");
+      const providerShare = roundEthAmount(
+        totalPrice * (verificationResult / 100)
+      );
+      const renterRefund = roundEthAmount(
+        totalPrice - totalPrice * (verificationResult / 100)
+      );
       doc.text(
-        `Provider's Share (${verificationResult}%): ${
-          totalPrice * (verificationResult / 100)
-        } ETH`,
+        `Provider's Share (${verificationResult}%): ${providerShare} ETH`,
         margin,
         y
       );
       y += 10;
       doc.text(
-        `Renter's Refund (${100 - verificationResult}%): ${
-          totalPrice - totalPrice * (verificationResult / 100)
-        } ETH`,
+        `Renter's Refund (${100 - verificationResult}%): ${renterRefund} ETH`,
         margin,
         y
       );
