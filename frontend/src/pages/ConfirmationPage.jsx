@@ -11,7 +11,20 @@ import {
 } from "../utils/rentalStorage";
 import jsPDF from "jspdf";
 
-const COOLDOWN_PERIOD = 120; // seconds for testing
+const COOLDOWN_PERIOD = 10; // seconds for testing
+
+const roundEthAmount = (amount) => {
+  const str = amount.toString();
+  if (str.includes(".")) {
+    const [whole, decimal] = str.split(".");
+    // Check for 6 or more continuous 9s
+    if (decimal.match(/9{6,}/)) {
+      // Round up to the next number
+      return (Math.ceil(amount * 1e6) / 1e6).toFixed(6);
+    }
+  }
+  return amount.toFixed(6);
+};
 
 const ConfirmationPage = () => {
   const { rentalId } = useParams();
@@ -539,7 +552,10 @@ const ConfirmationPage = () => {
                         Provider's Share ({verificationResult}%)
                       </span>
                       <span className="fw-bold">
-                        {totalPrice * (verificationResult / 100)} ETH
+                        {roundEthAmount(
+                          totalPrice * (verificationResult / 100)
+                        )}{" "}
+                        ETH
                       </span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
@@ -547,7 +563,9 @@ const ConfirmationPage = () => {
                         Your Refund ({100 - verificationResult}%)
                       </span>
                       <span className="fw-bold">
-                        {totalPrice - totalPrice * (verificationResult / 100)}{" "}
+                        {roundEthAmount(
+                          totalPrice - totalPrice * (verificationResult / 100)
+                        )}{" "}
                         ETH
                       </span>
                     </div>
