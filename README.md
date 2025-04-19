@@ -34,7 +34,7 @@ This project implements a decentralized GPU rental marketplace that solves the t
 
 ## 🏗️ Architecture
 
-![alt text](frontend/Documents/image.png)
+![alt text](Documents/image.png)
 
 ### System Components
 - **Server**: Monitors and reports actual GPU usage statistics
@@ -116,6 +116,24 @@ npm start
 - **Network**: Sepolia Testnet
 - **Contract Address**: `0xE590ff0E4FB5fCE671053ED5091F215204F49433`
 - **Chainlink Functions Subscription ID**: `4553`
+
+## 🌐 Deployment
+
+The application is live and can be accessed at: [GPU Rental Platform](https://rent-gpu-rose.vercel.app/)
+
+### Features Available in Live Demo:
+- Browse available GPUs for rent
+- Connect wallet using MetaMask
+- View detailed GPU specifications
+- Interact with smart contracts on Sepolia testnet
+- Real-time performance monitoring
+- Automated payment processing
+
+### Testing the Live System:
+1. Visit [https://rent-gpu-rose.vercel.app/](https://rent-gpu-rose.vercel.app/)
+2. Connect your MetaMask wallet (Sepolia network)
+3. Ensure you have some Sepolia ETH for testing
+4. Browse and interact with available GPU listings
 
 ## 🤝 Contributing
 
