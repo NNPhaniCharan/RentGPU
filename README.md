@@ -34,6 +34,17 @@ This project implements a decentralized GPU rental marketplace that solves the t
 
 ## 🏗️ Architecture
 
+![alt text](image.png)
+
+### System Components
+- **Server**: Monitors and reports actual GPU usage statistics
+- **Pinata**: Handles IPFS storage for stats and verification
+- **Chain Link**: Provides oracle services for data verification
+- **Smart Contract**: Manages rental agreements, payments, and deposits
+- **Client/Provider**: Offers GPU resources for rental
+- **User**: Rents GPU resources and provides deposits
+
+### Directory Structure
 ```
 ├── frontend/               # React-based web interface
 ├── SmartContract/         # Solidity smart contracts
