@@ -34,7 +34,7 @@ This project implements a decentralized GPU rental marketplace that solves the t
 
 ## 🏗️ Architecture
 
-![alt text](image.png)
+![alt text](frontend/Documents/image.png)
 
 ### System Components
 - **Server**: Monitors and reports actual GPU usage statistics
