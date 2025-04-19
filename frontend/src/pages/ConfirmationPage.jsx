@@ -16,7 +16,7 @@ const COOLDOWN_PERIOD = 120; // seconds for testing
 const roundEthAmount = (amount) => {
   const str = amount.toString();
   if (str.includes(".")) {
-    const [whole, decimal] = str.split(".");
+    const [, decimal] = str.split(".");
     // Check for 6 or more continuous 9s
     if (decimal.match(/9{6,}/)) {
       // Round up to the next number
@@ -39,7 +39,7 @@ const ConfirmationPage = () => {
   const [rentalData, setRentalData] = useState(initialRentalData);
   const [loading, setLoading] = useState(!initialRentalData);
   const [error, setError] = useState(null);
-  const [canVerify, setCanVerify] = useState(true);
+  const [canVerify] = useState(true);
   const [verifying, setVerifying] = useState(false);
   const [verificationError, setVerificationError] = useState(null);
   const [verificationTxHash, setVerificationTxHash] = useState(vTxHash ?? null);
