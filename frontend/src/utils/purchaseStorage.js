@@ -1,6 +1,12 @@
-// Utility functions for storing and retrieving IPFS hashes
+/** @constant {string} Key for storing rental hashes in localStorage */
 const RENTAL_HASHES_KEY = "rentalHashes";
 
+/**
+ * Saves a rental IPFS hash to localStorage
+ * @param {string} ipfsHash - The IPFS hash to save
+ * @returns {boolean} True if save was successful
+ * @throws {Error} If save operation fails
+ */
 export const saveRentalHash = (ipfsHash) => {
   try {
     // Get existing hashes from localStorage
@@ -21,6 +27,10 @@ export const saveRentalHash = (ipfsHash) => {
   }
 };
 
+/**
+ * Retrieves all stored rental IPFS hashes
+ * @returns {string[]} Array of IPFS hashes
+ */
 export const getRentalHashes = () => {
   try {
     const hashes = localStorage.getItem(RENTAL_HASHES_KEY);

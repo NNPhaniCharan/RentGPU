@@ -1,5 +1,11 @@
 import axios from "axios";
 
+/**
+ * Uploads JSON data to IPFS using Pinata
+ * @param {Object} jsonData - Data to upload to IPFS
+ * @returns {Promise<Object>} Upload response containing IPFS hash
+ * @throws {Error} If upload fails
+ */
 export const uploadToIPFS = async (jsonData) => {
   try {
     const response = await axios({
@@ -19,6 +25,12 @@ export const uploadToIPFS = async (jsonData) => {
   }
 };
 
+/**
+ * Retrieves data from IPFS using Pinata gateway
+ * @param {string} hash - IPFS hash to retrieve
+ * @returns {Promise<Object>} Retrieved data
+ * @throws {Error} If retrieval fails
+ */
 export const getFromIPFS = async (hash) => {
   try {
     const response = await axios.get(
