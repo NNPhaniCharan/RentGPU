@@ -37,6 +37,7 @@ This project implements a decentralized GPU rental marketplace that solves the t
 ![alt text](Documents/Architecture.png)
 
 ### System Components
+
 - **Server**: Monitors and reports actual GPU usage statistics
 - **Pinata**: Handles IPFS storage for stats and verification
 - **Chain Link**: Provides oracle services for data verification
@@ -45,6 +46,7 @@ This project implements a decentralized GPU rental marketplace that solves the t
 - **User**: Rents GPU resources and provides deposits
 
 ### Directory Structure
+
 ```
 ├── frontend/               # React-based web interface
 ├── SmartContract/         # Solidity smart contracts
@@ -66,8 +68,8 @@ This project implements a decentralized GPU rental marketplace that solves the t
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/NNPhaniCharan/GPURental.git
-cd GPURental
+git clone https://github.com/NNPhaniCharan/RentGPU.git
+cd RentGPU
 ```
 
 2. Install frontend dependencies:
