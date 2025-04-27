@@ -12,9 +12,8 @@ export const uploadToIPFS = async (jsonData) => {
       method: "post",
       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
       headers: {
-        pinata_api_key: "0fcea2e87c23c5e53798",
-        pinata_secret_api_key:
-          "3db12df2ec23b2a69ea6e0fb54cc21ed53f54c2c0495764e7343e2a99d7b5295",
+        pinata_api_key: process.env.REACT_APP_PINATA_API_KEY,
+        pinata_secret_api_key: process.env.REACT_APP_PINATA_SECRET_KEY,
       },
       data: jsonData,
     });
@@ -34,7 +33,7 @@ export const uploadToIPFS = async (jsonData) => {
 export const getFromIPFS = async (hash) => {
   try {
     const response = await axios.get(
-      `https://emerald-fantastic-bandicoot-583.mypinata.cloud/ipfs/${hash}`
+      `https://${process.env.REACT_APP_GATEWAY_URL}/ipfs/${hash}`
     );
     return response.data;
   } catch (error) {
