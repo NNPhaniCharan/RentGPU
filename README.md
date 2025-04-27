@@ -2,9 +2,13 @@
 
 A blockchain-based platform for renting GPUs with automated performance verification and fair payment distribution.
 
+🌐 **Live Demo**: [https://rent-gpu-phi.vercel.app/](https://rent-gpu-phi.vercel.app/)
+
 ## 📋 Project Overview
 
 This project implements a decentralized GPU rental marketplace that solves the trust and verification problems in traditional GPU rental systems. Using Chainlink Functions and smart contracts, we provide automated performance verification and fair payment distribution based on actual GPU performance.
+
+The platform is deployed and running on Vercel, making it easily accessible to users worldwide.
 
 ## 📺 Demo Video
 
@@ -137,3 +141,18 @@ npm start
 
 - Chainlink Functions for enabling automated performance verification
 - IPFS/Pinata for decentralized storage
+
+## 🚀 Deployment
+
+The application is deployed and hosted on Vercel:
+
+- **Live URL**: [https://rent-gpu-phi.vercel.app/](https://rent-gpu-phi.vercel.app/)
+- **Deployment Platform**: Vercel
+- **Status**: Active
+
+### Deployment Features
+
+- Continuous Integration/Deployment with GitHub
+- Automatic HTTPS/SSL
+- Global CDN distribution
+- Real-time performance monitoring
