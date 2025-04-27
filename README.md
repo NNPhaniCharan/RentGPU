@@ -83,8 +83,9 @@ npm install
 
 ```bash
 # Create .env file in frontend directory
-REACT_APP_PINATA_JWT=your_pinata_jwt
 REACT_APP_GATEWAY_URL=your_pinata_gateway_url
+REACT_APP_PINATA_API_KEY=your_pinata_api_key
+REACT_APP_PINATA_SECRET_KEY=your_pinata_api_secret_key
 
 REACT_APP_CONTRACT_ADDRESS=0xE590ff0E4FB5fCE671053ED5091F215204F49433
 ```
