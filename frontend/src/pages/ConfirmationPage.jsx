@@ -434,11 +434,18 @@ const ConfirmationPage = () => {
                   <strong>Rental ID:</strong> {rentalId}
                 </p>
                 <p className="mb-2">
-                  <strong>IPFS Hash:</strong> <small>{ipfsHash}</small>
-                </p>
-                <p className="mb-2">
-                  <strong>Smart Contract:</strong>{" "}
-                  <small>{contractAddress}</small>
+                  <strong>IPFS Hash:</strong>
+                  <small>
+                    <a
+                      href={`https://${process.env.REACT_APP_GATEWAY_URL}/ipfs/${ipfsHash}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ paddingLeft: "3px" }}
+                      // className="align-items-center"
+                    >
+                      {ipfsHash}
+                    </a>
+                  </small>
                 </p>
                 <p className="mb-2">
                   <strong>Provider Address:</strong>{" "}
