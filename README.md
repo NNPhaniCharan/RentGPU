@@ -12,7 +12,7 @@ The platform is deployed and running on Vercel, making it easily accessible to u
 
 ## 📺 Demo Video
 
-[![GPU Rental Platform Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![GPU Rental Platform Demo](https://img.youtube.com/vi/bkhyJNmIk-w/0.jpg)](https://youtu.be/bkhyJNmIk-w)
 
 ## 🎯 Technical Features
 

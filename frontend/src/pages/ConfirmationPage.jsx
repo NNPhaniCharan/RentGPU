@@ -585,10 +585,6 @@ const ConfirmationPage = () => {
           </div>
 
           <div className="mt-4 text-center">
-            <p>
-              You'll receive access information via email. For any issues,
-              contact our support.
-            </p>
             <div className="mt-3">
               <Link to="/gpus" className="btn btn-primary me-2">
                 Rent Another GPU
