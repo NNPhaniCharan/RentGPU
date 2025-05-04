@@ -124,14 +124,6 @@ npm start
 - **Contract Address**: `0xE590ff0E4FB5fCE671053ED5091F215204F49433`
 - **Chainlink Functions Subscription ID**: `4553`
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 👥 Team
 
 - _Narayana Phani Charan Nimmagadda_
@@ -149,10 +141,3 @@ The application is deployed and hosted on Vercel:
 - **Live URL**: [https://rent-gpu-phi.vercel.app/](https://rent-gpu-phi.vercel.app/)
 - **Deployment Platform**: Vercel
 - **Status**: Active
-
-### Deployment Features
-
-- Continuous Integration/Deployment with GitHub
-- Automatic HTTPS/SSL
-- Global CDN distribution
-- Real-time performance monitoring
